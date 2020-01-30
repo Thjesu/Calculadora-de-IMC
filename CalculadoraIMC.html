@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <style>
+
+    body{
+        background-color: rgb(241, 218, 188);
+        color: rgb(184, 58, 58);
+        font: normal 30pt Comic;
+        text-align: center;
+
+    }
+    h1 {
+        background-color:gainsboro ;
+        color: black;
+        font: normal 40pt Comic;
+    }
+    .special {
+        color: black;
+        background-color: gainsboro;
+    }
+    .tot {
+        background-color: gainsboro;
+        color:black;
+    }
+    #resposta2 {
+        background-color: rgb(238, 230, 215);
+    }
+    #resposta {
+        background-color:ivory;
+        
+    }
+   
+    
+    </style>
+</head>
+<body>
+    <h1>Insira os valores</h1>
+    <p id="resposta"></p>
+    <p id="resposta2"></p>
+    
+    
+<form>
+    <input type = "number"  id="inppeso" placeholder="Seu peso">
+    <br>
+    <input type = "number"  id="inpaltura" placeholder="Sua altura">
+    <br>
+    <button id= "calc" onclick="printotal()" >Calcular</button>
+</form>
+   
+   
+    
+</body>
+<script>
+
+    function imc(peso,altura) {
+       return peso / (altura*altura);    
+   };
+   
+  
+   function printotal() { 
+    var peso = document.getElementById("inppeso").value;
+    var altura = document.getElementById("inpaltura").value;
+    var total = Math.round(imc(peso,altura));
+    
+    if(!isNaN(total)) {
+        document.getElementById("resposta").innerHTML="Seu IMC é " + total;
+    } else {
+        return;
+    };
+    if (20.0 <= total && total <= 24.9 ) {
+        document.getElementById("resposta2").innerHTML="Seu imc está saudavel, parabens!"
+    } else {
+        document.getElementById("resposta2").innerHTML="Seu imc não é o ideal, cuidado!"
+    };
+     
+   };
+
+
+</script>
+</html>
